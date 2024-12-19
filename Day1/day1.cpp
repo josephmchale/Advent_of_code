@@ -44,7 +44,21 @@ int main() {
         total_difference += std::abs(list1[i] - list2[i]);
     }
     std::cout << "total_difference: " << total_difference << std::endl;
-    
 
+    // Part 2
+    int similarity_score{0};
+
+    // Remove duplicate values from list 1
+    std::set<int> duplicate_values_removed(list1.begin(), list1.end());
+    std::vector<int> new_list1(duplicate_values_removed.begin(), duplicate_values_removed.end())
+
+    for (int value: new_list1){
+        // Count number of occurrences of each value from list 1 in list 2
+        int count = std::count(list2.begin(), list2_end(), value);
+        similarity_score += (count * value);
+    }
+
+    std::cout << "similarity_score: " << similarity_score << std::endl;
+    
     return 0;
 }
